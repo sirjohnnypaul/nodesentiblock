@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>SentiBlock</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/main.css">
+
+    <script src="../sketch.js" type="text/javascript"></script>
+
+  </head>
+  <body>
+    <nav class="col-12 navbar navbar-expand-lg navbar-dark css-opacity" id="home">
+      <a class="navbar-brand" href="#home"><img src="/images/logo.png" width="50" height="50"/><span class="ml-3">SentiBlock</span></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#features">Our Features<span class="sr-only">(current)</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#addNew">Add New Word <span class="sr-only">(current)</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#Analyze">Make Sentimental Analysis <span class="sr-only">(current)</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/machinelearning">Make Sentimental Analysis Machine Learning <span class="sr-only">(current)</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+        <h1 class="display-4 text-light text-center m-auto pt-5" >Welcome in SentiBlock</h1>
+        <p class="col-md-7 col-10 lead text-muted text-center m-auto pt-5">Welcome in the word sentimental analisys program. We use AFIN words database along with custom added words and matching scores. To read more about AFIN check below</p>
+        <div class="text-center m-auto">
+          <a href="http://www2.imm.dtu.dk/pubdb/views/publication_details.php?id=6010" class="badge badge-danger m-auto text-center align-middle">AFINN</a>
+        </div>
+
+
+    <h4 class="text-light text-center pt-5 pb-3 col-md-6 col-10 m-auto" id="addNew">Provide The New Word And It's Score</h4>
+    <div class="input-group mb-3 col-md-5 col-10 m-auto pb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text bg-dark text-light" id="word">Word or Words Pair</span>
+      </div>
+      <input type="text" id="newWord" class="form-control bg-dark text-light" placeholder="Word or Words Pair" aria-label="Word" aria-describedby="word">
+    </div>
+
+
+    <div class="input-group mb-3 col-md-5 col-10 m-auto">
+      <div class="input-group-prepend">
+        <span class="input-group-text bg-dark text-light" id="score">Score</span>
+      </div>
+      <input type="text" id="newScore" class="form-control bg-dark text-light" placeholder="Score" aria-label="Score" aria-describedby="score">
+    </div>
+
+    <div class="text-center m-auto pt-3">
+      <button type="submit" class="btn btn-danger col-md-3 col-5" id="addWordBtn">Add Word or Words Pair</button>
+    </div>
+
+
+      <h4 class="text-light text-center pt-5 pb-3 col-md-6 col-10 m-auto" id="Analyze">Provide The Sentence And Click Buton To Analyze The Sentimental Value</h4>
+
+      <div class="form-group col-md-5 col-10 m-auto">
+        <label class="text-muted text-light" for="textInputArea">Your sentence</label>
+        <textarea class="form-control bg-dark text-light" id="textInputArea" rows="3"></textarea>
+        <div class="text-center m-auto pt-3">
+          <button class="btn btn-danger col-md-3 col-5" id="analyzeBtn">Analyze</button>
+        </div>
+      </div>
+
+      <h4 class="text-danger display-4 text-center pt-4 pb-3 col-md-6 col-10 m-auto" id="resultDisplayScore"></h4> 
+      <h4 class="text-light text-center pt-3 pb-3 col-md-6 col-10 m-auto" id="resultDisplayMeaning"></h4>
+      <h4 class="text-light text-center pt-3 pb-3 col-md-6 col-10 m-auto" id="resultDisplayComparative"></h4>
+      <h4 class="text-light text-center pt-3 pb-3 col-md-6 col-10 m-auto" id="resultDisplayWordList"></h4>
+      <h4 class="text-center pt-3 pb-3 col-md-6 col-10 m-auto text-warning" id="resultDisplayPairList"></h4>
+
+
+      <h2 class="col-md-7 col-10 text-muted text-center m-auto pt-5">Do you agree with system calculation? If yes, please confirm it! Thank you!</h2>
+      <div class="text-center m-auto pt-3">
+          <button class="text-center p-4 m-auto btn btn-success col-md-3 col-5 d-block" id="buttonAcceptSave">Agree!</button>
+      </div>
+
+      <h2 class="col-md-7 col-10 text-muted text-center m-auto pt-5">Don't agree? Please provide your raiting score by choosing from the list and click the button below. Thank you!</h2>
+
+      <div class="col-md-5 col-10 text-center m-auto pt-3">
+          <h6 class="text-danger text-center pt-4 pb-3 col-md-10 col-10 m-auto" id="scoreNotProvided"></h6> 
+          <div class="input-group">
+              <div class="input-group-prepend">
+                  <label class="input-group-text bg-dark text-light" for="choosenScore">Options</label>
+                </div>
+              <select class="custom-select bg-dark text-light" id="choosenScore">
+                <option selected>Choose your score from the list...</option>
+                <option value="-5">-5 - totaly negative, totaly traumatic or totaly dangerous</option>
+                <option value="-4">-4 - very negative, very sad or very traumatic</option>
+                <option value="-3">-3 - very negative</option>
+                <option value="-2">-2 - negative or sad</option>
+                <option value="-1">-1 - quite negative or a little sad</option>
+                <option value="0">0 - not negative, not possitive, neutral</option>
+                <option value="1">1 - quite possitive or happy</option>
+                <option value="2">2 - happy or motivating</option>
+                <option value="3">3 - very positive or happy</option>
+                <option value="4">4 - very possitive, very happy or very motivating</option>
+                <option value="5">5 - totaly positive, totaly happy, totaly motivating</option>
+              </select>
+            </div>     
+      </div>
+
+      <div class="text-center m-auto pt-3">
+          <button class="text-center p-4 m-auto d-block btn btn-danger col-md-3 col-5 d-block" id="buttonDeclineSave">Don't agree!</button> 
+      </div>
+
+
+
+      <h1 class="display-md-3 display-4 text-light text-center m-auto pt-5" id="features" >How Does SentiBlock Works?</h1>
+      <h4 class="display-5 text-light text-center m-auto pt-5" id="features" >The Words Adding</h4>
+      <p class="col-md-7 col-10 lead text-muted text-center m-auto pt-5">The system allows you to add new words that will be saved into the JSON file together with the score. Words will be later used along with Official AFINN words database to measure the sentimental analysis of provided sentence.</p>
+      <h4 class="display-5 text-light text-center m-auto pt-5" id="features" >The Sentimental Analysis</h4>
+      <p class="col-md-7 col-10 lead text-muted text-center m-auto pt-5">We use AFIN words database along with custom added words and matching scores. The AFINN-111 - newest version with 2477 words and phrases allows us to measure the sentimental value of specific words groups. Hovewer, AFFIN does not provide all words that we would like to possibly use. That's why SentiBlock allows us to input our custom words and calulate sentimental value using both AFINN and custom list. We encourage you to read more about work of AFINN Finn Årup Nielsen. To read more about AFIN check below</p>
+      <div class="text-center m-auto">
+        <a href="http://www2.imm.dtu.dk/pubdb/views/publication_details.php?id=6010" class="badge badge-danger m-auto text-center align-middle">AFINN</a>
+      </div>
+      <h4 class="display-5 text-light text-center m-auto pt-5" id="features" >The Sentimental Analysis Extra Features</h4>
+      <p class="col-md-7 col-10 lead text-muted text-center m-auto pt-5">Beyond second words source that was not provided by AFINN, we also coded the part which allows to calculate scores of word pairs. Clean AFINN and singular words are not always the most trusthworthy factors. That's why we created the third source which provides the scores for sentimental analysis for pairs of words containing at least 2 words. Example: "not bad".</p>
+      
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.dom.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="/js/scrollAnimation.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+</body>
+</html>

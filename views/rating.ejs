@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>SentiBlock</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="/css/main.css">
+    
+        <script src="../sketchRating.js" type="text/javascript"></script>
+    
+      </head>
+    <body>
+        <nav class="col-12 navbar navbar-expand-lg navbar-dark css-opacity" id="home">
+          <a class="navbar-brand" href="#home"><img src="/images/logo.png" width="50" height="50"/><span class="ml-3">SentiBlock</span></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/">Features <span class="sr-only">(current)</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/">Add New Word <span class="sr-only">(current)</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/">Make Sentimental Analysis <span class="sr-only">(current)</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+    
+            <h1 class="display-4 text-light text-center m-auto pt-5" >Let's rate some words!</h1>
+            <p class="col-md-7 col-10 lead text-muted text-center m-auto pt-5">Thank's to this section (if any words are available to be rated) you will help us set the sentimental rating for each words or set of words. 
+                Words will be later used to count the sentimental score of each sentence in the best and most precise way! Thank you!</p>
+
+                <h2 class="col-md-7 col-10 text-light text-center m-auto pt-5">Please look at the displayed word and choose the appropriate score from the list. We ask you politely to do this
+                    with awareness of our hard work! Thank you for all reliable help! </h2>
+
+
+                        <div class="input-group col-md-5 col-10 m-auto pb-1 pt-5">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text bg-dark text-light" id="generatedword">Generated Word</span>
+                                </div>
+                                <input  type="text" id="resultDisplayWordToRate" class="form-control bg-dark text-danger display-4" value="<% if (wordToRate) {%><%= wordToRate %><% }%>" aria-label="Word" aria-describedby="word">
+                              </div>
+
+                <div class="col-md-5 col-10 text-center m-auto pb-4">
+                    <h6 class="text-danger text-center pb-2 pt-2 col-md-10 col-10 m-auto" id="scoreNotProvided2"></h6> 
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text bg-dark text-light" for="choosenScore">Options</label>
+                          </div>
+                        <select class="custom-select bg-dark text-light" id="choosenScoreForWord2">
+                          <option selected>Choose your score from the list...</option>
+                          <option value="-5">-5 - totaly negative, totaly traumatic or totaly dangerous</option>
+                          <option value="-4">-4 - very negative, very sad or very traumatic</option>
+                          <option value="-3">-3 - very negative</option>
+                          <option value="-2">-2 - negative or sad</option>
+                          <option value="-1">-1 - quite negative or a little sad</option>
+                          <option value="0">0 - not negative, not possitive, neutral</option>
+                          <option value="1">1 - quite possitive or happy</option>
+                          <option value="2">2 - happy or motivating</option>
+                          <option value="3">3 - very positive or happy</option>
+                          <option value="4">4 - very possitive, very happy or very motivating</option>
+                          <option value="5">5 - totaly positive, totaly happy, totaly motivating</option>
+                        </select>
+                      </div>     
+                </div>
+          
+                <div class="text-center m-auto pt-3">
+                    
+                    <button class="text-center p-4 m-auto d-inline-block btn btn-danger col-md-3 col-5" id="buttonAddScoreForWord">Save score!</button>
+
+                </div>
+                <h5 class="text-warning text-center pb-2 pt-5 col-md-10 col-10 m-auto" id="scoreForPrevious">
+                </h5>
+                <div class="text-center m-auto pt-3">
+
+                </div>
+
+                <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.dom.js" type="text/javascript"></script>
+</body>
+</html>

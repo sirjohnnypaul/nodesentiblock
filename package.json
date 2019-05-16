@@ -1,0 +1,17 @@
+{
+    "scripts": {
+        "start": "node index.js"
+    },
+    "name": "api_in_node",
+    "version": "1.0.0",
+    "dependencies": {
+        "body-parser": "^1.18.3",
+        "cors": "^2.8.5",
+        "ejs": "^2.6.1",
+        "express": "^4.16.4",
+        "firebase": "^5.8.5"
+    },
+    "engines": {
+        "node": "10.x"
+    }
+}

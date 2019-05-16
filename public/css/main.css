@@ -1,0 +1,11 @@
+body {
+    background: url('/images/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height:auto;
+}
+
+.css-opacity {
+    background: rgb(251, 251, 251,0.3);
+}
+
