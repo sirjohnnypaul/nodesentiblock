@@ -28,6 +28,7 @@ function renderHome(req,res){
     res.render('index');
 }
 
+
 //there were more functions like that, just kept it to show what i was doing to make some json files ready to use
 //app.get('/cleanAndSplit', cleanAndSplit);
 
@@ -613,10 +614,16 @@ function machineLearning(req, res) {
 }
 
 
+app.get('*', renderError);
+
+function renderError(req,res){
+    res.send('Sorry, it is a modest error handling but it works ;) Will make it better soon!');
+}
 
 var server = app.listen(5001, listening);
 
 function listening() {
     console.log('Listening on port 5001');
 }
+
 
